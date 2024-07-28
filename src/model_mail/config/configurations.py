@@ -14,3 +14,9 @@ class MailingConfigs:
         self.smtp_password: str = os.getenv("SYSTEM_SMTP_PASSWORD")
         self.sender_email: str = os.getenv("SYSTEM_SENDER_EMAIL")
         self.receiver_email: str = os.getenv("SYSTEM_RECEIVER_EMAIL")
+
+
+
+
+class Settings:
+    mail_config: MailingConfigs = MailingConfigs(Console())
