@@ -5,6 +5,17 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
+
+
+class BasicConfigs:
+    def __init__(self) -> None:
+        self.app_name: str = os.getenv("SYSTEM_APP_NAME")
+        self.app_version: str = os.getenv("SYSTEM_APP_VERSION")
+        self.app_author: str = os.getenv("SYSTEM_APP_AUTHOR")
+        self.app_description: str = os.getenv("SYSTEM_APP_DESCRIPTION")
+        
+
+
 class MailingConfigs:
     def __init__(self, console: Console) -> None:
         self.console: Console = console
