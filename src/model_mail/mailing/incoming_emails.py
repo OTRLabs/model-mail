@@ -8,11 +8,12 @@ from ..config.configurations import Settings, MailingConfigs
 
 class IncomingEmailHandler:
     
-    async def __init__(self, console: Console, email_config: MailingConfigs) -> None:
+    def __init__(self, console: Console, email_config: MailingConfigs) -> None:
         self.console: Console = console
         self.email_config: MailingConfigs = email_config
         self.smtp_client = aiosmtplib.SMTP(hostname=self.email_config.smtp_server, port=self.email_config.smtp_port)
         
+    async def connect_and_login(self) -> None:
         try:
             await self.smtp_client.connect()
             self.console.print("Connected to the SMTP server")
