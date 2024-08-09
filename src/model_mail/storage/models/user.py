@@ -47,7 +47,8 @@ class User(UUIDBase):
     __table__ = "users"
     
     user_name: Mapped[str]
-     
+    email: Mapped[str]
+    password_hash: Mapped[str] 
     
     
     
