@@ -21,10 +21,40 @@ from advanced_alchemy.extensions.litestar import (
 from advanced_alchemy.filters import FilterTypes, LimitOffset
 from advanced_alchemy.repository import SQLAlchemyAsyncRepository
 from advanced_alchemy.service import OffsetPagination, SQLAlchemyAsyncRepositoryService
-
+from enum import Enum
 if TYPE_CHECKING:
     from collections.abc import AsyncGenerator
     from datetime import date
     from uuid import UUID
 
     from sqlalchemy.ext.asyncio import AsyncSession
+
+
+class UserRoles(str, Enum):
+    ADMIN: str = "admin"
+    MANAGER: str = "manager"
+    CUSTOMER: str = "customer"
+    
+
+class CustomerTier(str, Enum):
+    GOLD: str = "gold"
+    SILVER: str = "silver"
+    BRONZE: str = "bronze"
+    FREE: str = "free"
+
+class User(UUIDBase):
+    
+    __table__ = "users"
+    
+    user_name: Mapped[str]
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
