@@ -31,14 +31,19 @@ from advanced_alchemy.filters import FilterTypes, LimitOffset
 from advanced_alchemy.repository import SQLAlchemyAsyncRepository
 from advanced_alchemy.service import OffsetPagination, SQLAlchemyAsyncRepositoryService
 
+
+
 if TYPE_CHECKING:
     from collections.abc import AsyncGenerator
     from datetime import date
     from uuid import UUID
 
     from sqlalchemy.ext.asyncio import AsyncSession
-from advanced_alchemy. import Mapped
-@dataclass
+
+
+
+
+
 class Thread(UUIDAuditBase):
     __tablename__ = "threads"
 
