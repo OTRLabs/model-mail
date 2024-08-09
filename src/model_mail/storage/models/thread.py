@@ -48,8 +48,8 @@ class Thread(UUIDAuditBase):
     __tablename__ = "threads"
 
     id: Mapped[int]
-    subject: str
-    folder_id: int
+    subject: Mapped[str]
+    folder_id: Mapped[int]
 
     def save(self, session: Session) -> None:
         session.add(self)
