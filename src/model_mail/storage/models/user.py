@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
+from typing import List 
 
 from litestar import Litestar
 from litestar.controller import Controller
@@ -22,6 +23,9 @@ from advanced_alchemy.filters import FilterTypes, LimitOffset
 from advanced_alchemy.repository import SQLAlchemyAsyncRepository
 from advanced_alchemy.service import OffsetPagination, SQLAlchemyAsyncRepositoryService
 from enum import Enum
+
+import asyncio
+
 if TYPE_CHECKING:
     from collections.abc import AsyncGenerator
     from datetime import date
@@ -46,9 +50,25 @@ class User(UUIDBase):
     
     __table__ = "users"
     
-    user_name: Mapped[str]
-    email: Mapped[str]
-    password_hash: Mapped[str] 
+    user_name: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
+    first_name: Mapped[str] = mapped_column(nullable=True)
+    last_name: Mapped[str] = mapped_column(nullable=True)
+    email: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
+    
+    password_hash: Mapped[str] = mapped_column(nullable=False)
+    
+    
+    role: Mapped[UserRoles] = mapped_column(nullable=False)
+    
+    if role == UserRoles.CUSTOMER:
+        tier: Mapped[CustomerTier] = mapped_column(nullable=False)
+        
+    
+    async def save(self, session: AsyncSession) -> None:
+        session.add(self)
+        await session.commit()
+        
+     
     
     
     
