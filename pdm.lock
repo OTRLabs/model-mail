@@ -5,10 +5,21 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:c0892727826d1826e56fbee4f5e41502b87518ff0528b6f5424e8b4ad1c54364"
+content_hash = "sha256:073977fb605e980a3857a0c17c01f62e01f3049f9b107d1e4cf41a0860dbbe18"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
+
+[[package]]
+name = "aiosmtplib"
+version = "3.0.2"
+requires_python = ">=3.8"
+summary = "asyncio SMTP client"
+groups = ["default"]
+files = [
+    {file = "aiosmtplib-3.0.2-py3-none-any.whl", hash = "sha256:8783059603a34834c7c90ca51103c3aa129d5922003b5ce98dbaa6d4440f10fc"},
+    {file = "aiosmtplib-3.0.2.tar.gz", hash = "sha256:08fd840f9dbc23258025dca229e8a8f04d2ccf3ecb1319585615bfc7933f7f47"},
+]
 
 [[package]]
 name = "annotated-types"

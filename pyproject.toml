@@ -10,6 +10,7 @@ dependencies = [
     "twisted>=24.3.0",
     "pydantic>=2.8.2",
     "python-dotenv>=1.0.1",
+    "aiosmtplib>=3.0.2",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
